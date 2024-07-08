@@ -1,0 +1,27 @@
+query User($login: String!) {
+    user(login: $login) {
+        contributionsCollection {
+            contributionCalendar {
+                colors
+                isHalloween
+                months {
+                    firstDay
+                    name
+                    totalWeeks
+                    year
+                }
+                totalContributions
+                weeks {
+                    contributionDays {
+                        color
+                        contributionCount
+                        contributionLevel
+                        date
+                        weekday
+                    }
+                    firstDay
+                }
+            }
+        }
+    }
+}

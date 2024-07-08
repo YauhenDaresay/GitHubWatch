@@ -1,0 +1,70 @@
+[versions]
+agp = "8.6.0-alpha08"
+graphql = "3.8.2"
+detektFormatting = "1.23.1"
+jjwt = "0.12.6"
+kiolkDetektRules = "1.0.5"
+koinAndroidxCompose = "3.5.6"
+koinTest = "3.4.2"
+kotlin = "1.9.0"
+kotlinxDatetime = "0.4.0"
+kotlinxSerializationJson = "1.5.1"
+lifecycleViewmodelCompose = "2.8.3"
+loggingInterceptor = "5.0.0-alpha.11"
+navigationCompose = "2.7.7"
+okhttp = "4.11.0"
+playServicesWearable = "18.0.0"
+composeBom = "2024.04.01"
+composeMaterial = "1.2.1"
+composeFoundation = "1.2.1"
+activityCompose = "1.8.0"
+coreSplashscreen = "1.0.1"
+retrofit = "2.9.0"
+retrofit2KotlinxSerializationConverter = "1.0.0"
+swiperefreshlayout = "1.1.0"
+wearCompose = "1.0.0-beta01"
+wearToolingPreview = "1.0.0"
+detekt = "1.23.1"
+material3Android = "1.2.1"
+
+[libraries]
+apollo-coroutines-support = { module = "com.apollographql.apollo3:apollo-coroutines-support", version.ref = "graphql" }
+apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "graphql" }
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektFormatting" }
+jjwt = { module = "io.jsonwebtoken:jjwt", version.ref = "jjwt" }
+kiolk-detekt-rules = { module = "io.github.kiolk:kiolk-detekt-rules", version.ref = "kiolkDetektRules" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroidxCompose" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koinTest" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleViewmodelCompose" }
+lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelCompose" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "playServicesWearable" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2KotlinxSerializationConverter" }
+swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "composeMaterial" }
+compose-foundation = { group = "androidx.wear.compose", name = "compose-foundation", version.ref = "composeFoundation" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
+wear-compose = { module = "androidx.wear:wear-compose", version.ref = "wearCompose" }
+wear-tooling-preview = { module = "androidx.wear:wear-tooling-preview", version.ref = "wearToolingPreview" }
+material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+graphql = { id = "com.apollographql.apollo3", version.ref = "graphql" }
+

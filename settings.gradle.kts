@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GitHub Watch"
+rootProject.name = "Git Watch"
 include(":app")

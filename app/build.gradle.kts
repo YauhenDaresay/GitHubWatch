@@ -16,7 +16,7 @@ detekt {
 
 apollo {
     service("service") {
-        packageName.set("co.daresay.githubwatch")
+        packageName.set("co.daresay.gitwatch")
         schemaFile.set(file("src/main/graphql/schema.graphqls"))
     }
 }
@@ -29,15 +29,15 @@ val privateKey: String = localProperties.getProperty("private_key")
 val privateAccessToken: String = localProperties.getProperty("private_acess_token")
 
 android {
-    namespace = "co.daresay.githubwatch"
+    namespace = "co.daresay.gitwatch"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "co.daresay.githubwatch"
+        applicationId = "co.daresay.gitwatch"
         minSdk = 30
         targetSdk = 34
         versionCode = 1
-        versionName = "1.0"
+        versionName = "0.0.1"
         vectorDrawables {
             useSupportLibrary = true
         }

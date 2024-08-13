@@ -26,7 +26,7 @@ val localPropertiesFile = rootProject.file("local.properties")
 localProperties.load(FileInputStream(localPropertiesFile))
 
 val privateKey: String = localProperties.getProperty("private_key")
-val privateAccessToken: String = localProperties.getProperty("private_acess_token")
+val privateAccessToken: String = localProperties.getProperty("private_access_token")
 
 android {
     namespace = "co.daresay.gitwatch"
@@ -94,7 +94,7 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     implementation(libs.material3.android)
-    testImplementation(libs.koin.test)
+//    testImplementation(libs.koin.test)
 
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.viewmodel.ktx)

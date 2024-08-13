@@ -1,0 +1,29 @@
+name: Code checks on Pull Request
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - 'master'
+      - 'release/**'
+      - 'dev'
+jobs:
+  pull_request_checks:
+    name: Code checks on Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: 17
+          distribution: 'zulu'
+      - name: Setup variables in local.properties
+        run: |
+          echo "private_key=${{secrets.PRIVATE_KEY}}" > local.properties
+          echo "private_access_token=${{secrets.PRIVATE_ACCESS_TOKEN}}" >> local.properties
+          echo "key_alias=${{secrets.KEY_ALIAS}}" >> local.properties
+          echo "key_password=${{secrets.KEY_PASSWORD}}" >> local.properties
+          echo "store_password=${{secrets.STORE_PASSWORD}}" >> local.properties
+      - name: Run unit tests
+        run: ./gradlew test

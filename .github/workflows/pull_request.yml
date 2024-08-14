@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "private_key=${{secrets.PRIVATE_KEY}}" > local.properties
           echo "private_access_token=${{secrets.PRIVATE_ACCESS_TOKEN}}" >> local.properties
-          echo "key_alias=${{secrets.KEY_ALIAS}}" >> local.properties
+          echo "key_alias=${{secrets.ALIAS}}" >> local.properties
           echo "key_password=${{secrets.KEY_PASSWORD}}" >> local.properties
           echo "store_password=${{secrets.STORE_PASSWORD}}" >> local.properties
       - name: Run unit tests

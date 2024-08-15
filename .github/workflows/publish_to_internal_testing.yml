@@ -20,9 +20,13 @@ jobs:
         run: |
           echo "private_key=${{secrets.PRIVATE_KEY}}" > local.properties
           echo "private_access_token=${{secrets.PRIVATE_ACCESS_TOKEN}}" >> local.properties
-          echo "key_alias=${{secrets.KEY_ALIAS}}" >> local.properties
+          echo "key_alias=${{secrets.ALIAS}}" >> local.properties
           echo "key_password=${{secrets.KEY_PASSWORD}}" >> local.properties
           echo "store_password=${{secrets.STORE_PASSWORD}}" >> local.properties
+      - name: Restore Upload Key
+        run: |
+          echo "${{secrets.KEY_IN_ASC_FORMAT}}" > app/new_upload_key.jks.asc
+          gpg -d --passphrase "${{secrets.PATH_PHRASE}}" --batch app/new_upload_key.jks.asc > app/new_upload_key.jks
       - name: Run unit tests
         run: ./gradlew test
       - name: Prepare release bundle
@@ -35,8 +39,3 @@ jobs:
           releaseFiles: app/build/outputs/bundle/release/app-release.aab
           track: wear:qa
           status: inProgress
-#          inAppUpdatePriority: 2
-#          userFraction: 0.33
-#          whatsNewDirectory: distribution/whatsnew
-#          mappingFile: app/build/outputs/mapping/release/mapping.txt
-#          debugSymbols: app/intermediates/merged_native_libs/release/out/lib

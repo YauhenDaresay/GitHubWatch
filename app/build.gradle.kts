@@ -27,6 +27,9 @@ localProperties.load(FileInputStream(localPropertiesFile))
 
 val privateKey: String = localProperties.getProperty("private_key")
 val privateAccessToken: String = localProperties.getProperty("private_access_token")
+val aliasKey: String = localProperties.getProperty("key_alias")
+val passwordKey: String = localProperties.getProperty("key_password")
+val passwordStore: String = localProperties.getProperty("store_password")
 
 android {
     namespace = "co.daresay.gitwatch"
@@ -36,12 +39,21 @@ android {
         applicationId = "co.daresay.gitwatch"
         minSdk = 30
         targetSdk = 34
-        versionCode = 1
+        versionCode = 4
         versionName = "0.0.1"
         vectorDrawables {
             useSupportLibrary = true
         }
 
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = aliasKey
+            keyPassword = passwordKey
+            storePassword = passwordStore
+            storeFile = rootProject.file("app/new_upload_key.jks")
+        }
     }
 
     buildTypes {
@@ -53,6 +65,7 @@ android {
             )
             buildConfigField("String", "PRIVATE_KEY", "\"${privateKey}\"")
             buildConfigField("String", "PRIVATE_ACCESS_TOKEN", "\"${privateAccessToken}\"")
+            signingConfig = signingConfigs.getByName("release")
         }
         debug {
             buildConfigField("String", "PRIVATE_KEY", "\"${privateKey}\"")

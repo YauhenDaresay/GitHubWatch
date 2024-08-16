@@ -1,11 +1,9 @@
-name: Code checks on Pull Request
+name: Publish to internal testing channel in Google Play Console
 on:
   workflow_dispatch:
-  pull_request:
+  push:
     branches:
       - 'master'
-      - 'release/**'
-      - 'dev'
 jobs:
   pull_request_checks:
     name: Code checks on Pull Request
@@ -25,5 +23,19 @@ jobs:
           echo "key_alias=${{secrets.ALIAS}}" >> local.properties
           echo "key_password=${{secrets.KEY_PASSWORD}}" >> local.properties
           echo "store_password=${{secrets.STORE_PASSWORD}}" >> local.properties
+      - name: Restore Upload Key
+        run: |
+          echo "${{secrets.KEY_IN_ASC_FORMAT}}" > app/new_upload_key.jks.asc
+          gpg -d --passphrase "${{secrets.PATH_PHRASE}}" --batch app/new_upload_key.jks.asc > app/new_upload_key.jks
       - name: Run unit tests
         run: ./gradlew test
+      - name: Prepare release bundle
+        run: ./gradlew bundleRelease
+      - name: Publish to Google Play Console
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          packageName: co.daresay.gitwatch
+          releaseFiles: app/build/outputs/bundle/release/app-release.aab
+          track: wear:qa
+          status: inProgress

@@ -37,5 +37,5 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: co.daresay.gitwatch
           releaseFiles: app/build/outputs/bundle/release/app-release.aab
-          track: wear:qa
-          status: inProgress
+          track: wear:internal
+          status: draft

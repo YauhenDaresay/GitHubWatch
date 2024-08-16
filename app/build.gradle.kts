@@ -39,8 +39,8 @@ android {
         applicationId = "co.daresay.gitwatch"
         minSdk = 30
         targetSdk = 34
-        versionCode = 4
-        versionName = "0.0.1"
+        versionCode = 6
+        versionName = "0.0.2"
         vectorDrawables {
             useSupportLibrary = true
         }

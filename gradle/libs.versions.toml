@@ -1,5 +1,5 @@
 [versions]
-agp = "8.7.0-alpha06"
+agp = "8.7.0-alpha07"
 graphql = "3.8.2"
 detektFormatting = "1.23.1"
 jjwt = "0.12.6"
